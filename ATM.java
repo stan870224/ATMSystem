@@ -36,7 +36,6 @@ public class ATM {
     private void create(){
         Account acc = new Account();
 
-
         System.out.println("Please Enter your name");
         String name = sc.next();
         acc.setName(name);
