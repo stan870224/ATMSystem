@@ -7,3 +7,10 @@ This is my Practice Project for build a ATM System
 5. transfer
 6. Account closure
 7. change the password
+
+
+======================================================
+
+Test.java : Test this System can be work.
+ATM.java : Main System.
+Account.java : Users Information Parameter
