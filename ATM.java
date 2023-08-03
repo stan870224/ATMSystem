@@ -29,7 +29,7 @@ public class ATM {
         }
     }
 
-    public void login(){
+    private void login(){
 
     }
 
