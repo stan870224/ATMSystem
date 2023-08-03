@@ -32,7 +32,43 @@ public class ATM {
 
     }
 
-    public void create(){
+    //finish create account
+    private void create(){
+        Account acc = new Account();
+
+
+        System.out.println("Please Enter your name");
+        String name = sc.next();
+        acc.setName(name);
+        while(true){
+            System.out.println("Please Enter your sex(male input M , female input F,Third sex input 3)");
+            char sex = sc.next().charAt(0);
+            if (sex == 'M' || sex == 'F' || sex == '3' ){
+                acc.setSex(sex);
+                break;
+            }else{
+                System.out.println("There is no such gender");
+            }
+        }
+        while(true){
+            System.out.println("Please Enter your password");
+            String password = sc.next();
+            System.out.println("To confirm the password, Please enter it again");
+            String okpassword = sc.next();
+            if (okpassword.equals(password)){
+                acc.setPassword(okpassword);
+                break;
+            }else{
+                System.out.println("The password is difference ,Please enter it again");
+            }
+        }
+        System.out.println("Please Enter your limit withdrawals");
+        double limit = sc.nextDouble();
+        acc.setLimit(limit);
+
+        // point : We need to use System Random an account number and it is 8 numbers,
+        //         and this requirement said the account number can't be the same as other accounts.
+
 
     }
 }

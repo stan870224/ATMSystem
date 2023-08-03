@@ -1,12 +1,12 @@
 public class Account {
     private int AccountNumer;
     private String name;
-    private String sex;
-    private int password;
+    private char sex;
+    private String password;
     private double money;
     private double limit;
 
-    public Account(String name, String sex, int password, double money, double limit ,int AccountNumer) {
+    public Account(String name, char sex, String password, double money, double limit ,int AccountNumer) {
         this.name = name;
         this.sex = sex;
         this.password = password;
@@ -24,10 +24,10 @@ public class Account {
     public String getName() {
         return name;
     }
-    public String getSex() {
+    public char getSex() {
         return sex;
     }
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
     public double getMoney() {
@@ -39,10 +39,10 @@ public class Account {
     public void setName(String name) {
         this.name = name;
     }
-    public void setSex(String sex) {
+    public void setSex(char sex) {
         this.sex = sex;
     }
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
     }
     public void setMoney(double money) {
