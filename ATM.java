@@ -42,7 +42,7 @@ public class ATM {
         acc.setName(name);
         while(true){
             System.out.println("Please Enter your sex(male input M , female input F,Third sex input 3)");
-            char sex = sc.next().charAt(0);
+            char sex = sc.next().toUpperCase().charAt(0);
             if (sex == 'M' || sex == 'F' || sex == '3' ){
                 acc.setSex(sex);
                 break;
@@ -69,6 +69,7 @@ public class ATM {
         // point : We need to use System Random an account number and it is 8 numbers,
         //         and this requirement said the account number can't be the same as other accounts.
 
-
+        accounts.add(acc);
+        System.out.println("Congualations !! Your Account is create !! " + acc.getName() + "Mr./Ms. Your Account Number is "  );
     }
 }
