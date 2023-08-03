@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class ATM {
@@ -34,11 +35,16 @@ public class ATM {
 
     //finish create account
     private void create(){
+        System.out.println("========Create Your Acccount========");
         Account acc = new Account();
 
+
+        // Enter the name
         System.out.println("Please Enter your name");
         String name = sc.next();
         acc.setName(name);
+
+        //Enter the sex
         while(true){
             System.out.println("Please Enter your sex(male input M , female input F,Third sex input 3)");
             char sex = sc.next().toUpperCase().charAt(0);
@@ -49,6 +55,8 @@ public class ATM {
                 System.out.println("There is no such gender");
             }
         }
+
+        //Enter the password
         while(true){
             System.out.println("Please Enter your password");
             String password = sc.next();
@@ -61,14 +69,46 @@ public class ATM {
                 System.out.println("The password is difference ,Please enter it again");
             }
         }
+
+        //Enter the limit
         System.out.println("Please Enter your limit withdrawals");
         double limit = sc.nextDouble();
         acc.setLimit(limit);
 
         // point : We need to use System Random an account number and it is 8 numbers,
         //         and this requirement said the account number can't be the same as other accounts.
-
+        String cardId = createCardId();
+        acc.setAccountNumber(cardId);
+        //Put this account object to the Arraylist(Account)
         accounts.add(acc);
         System.out.println("Congualations !! Your Account is create !! " + acc.getName() + "Mr./Ms. Your Account Number is " );
+    }
+        
+    private String createCardId(){
+        //System create a Random account numer for 8 numbers
+        while(true){
+            String cardId ="";
+            Random r = new Random();
+            for (int i = 0; i < 8; i++) {
+                int data = r.nextInt(10);
+                cardId += data;
+            }
+            Account acc = getAccountbyId(cardId);
+            if (acc == null){
+                return cardId;
+            }
+        }   
+        // the account number can't be the same as other accounts.
+        
+    }
+
+    private Account getAccountbyId(String cardId){
+        for (int i = 0; i < accounts.size(); i++) {
+            Account acc = accounts.get(i);
+            if (acc.getAccountNumber().equals(cardId)){
+                return acc;
+            }
+        }
+        return null;
     }
 }

@@ -1,25 +1,25 @@
 public class Account {
-    private int AccountNumer;
+    private String accountNumber;
     private String name;
     private char sex;
     private String password;
     private double money;
     private double limit;
 
-    public Account(String name, char sex, String password, double money, double limit ,int AccountNumer) {
+    public Account(String name, char sex, String password, double money, double limit ,String accountNumber) {
         this.name = name;
         this.sex = sex;
         this.password = password;
         this.money = money;
         this.limit = limit;
-        this.AccountNumer = AccountNumer;
+        this.accountNumber = accountNumber;
     }
 
     public Account() {
     }
 
-    public int getAccountNumer() {
-        return AccountNumer;
+    public String getAccountNumber() {
+        return accountNumber;
     } 
     public String getName() {
         return name;
@@ -51,8 +51,8 @@ public class Account {
     public void setLimit(double limit) {
         this.limit = limit;
     }
-    public void setAccountNumer(int accountNumer) {
-        AccountNumer = accountNumer;
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
     }
     
 }
