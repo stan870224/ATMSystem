@@ -79,10 +79,10 @@ public class ATM {
         //         and this requirement said the account number can't be the same as other accounts.
         String cardId = createCardId();
         acc.setAccountNumber(cardId);
-        
+
         //Put this account object to the Arraylist(Account)
         accounts.add(acc);
-        System.out.println("Congualations !! Your Account is create !! " + acc.getName() + "Mr./Ms. Your Account Number is " );
+        System.out.println("Congualations !! Your Account is create !! " + acc.getName() + "Mr./Ms. Your Account Number is " + acc.getAccountNumber());
     }
         
     private String createCardId(){
