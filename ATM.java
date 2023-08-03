@@ -69,6 +69,6 @@ public class ATM {
         //         and this requirement said the account number can't be the same as other accounts.
 
         accounts.add(acc);
-        System.out.println("Congualations !! Your Account is create !! " + acc.getName() + "Mr./Ms. Your Account Number is "  );
+        System.out.println("Congualations !! Your Account is create !! " + acc.getName() + "Mr./Ms. Your Account Number is " );
     }
 }
