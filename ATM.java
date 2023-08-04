@@ -30,14 +30,38 @@ public class ATM {
     }
 
     private void login(){
-
+        System.out.println("========Login Your Acccount========");
+        
+        if (accounts.size() == 0 ){
+            System.out.println("There are no Accounts in the System , Please create an account first");
+            return;
+        }
+        while(true){
+            System.out.println("Please Enter Your Account Number");
+            String cardId = sc.next();
+            Account acc = getAccountbyId(cardId);
+            if (acc == null){
+                System.out.println("You enter a wrong Account Number");
+                System.out.println("Please enter it again");
+            }else{
+                while(true){
+                    System.out.println("Please enter Your password");
+                    String passWord = sc.next();
+                    if (acc.getPassword().equals(passWord)){
+                        System.out.println("Congulation !!" + acc.getName() + " Mrs./ Ms. your are login. Your Account Number is: " + acc.getAccountNumber());
+                    }else{
+                        System.out.println("You enter the wrong password");
+                        System.out.println("Please enter it again");
+                    }
+                }
+            }
+        }
     }
 
     //finish create account
     private void create(){
         System.out.println("========Create Your Acccount========");
         Account acc = new Account();
-
 
         // Enter the name
         System.out.println("Please Enter your name");
@@ -99,10 +123,10 @@ public class ATM {
                 return cardId;
             }
         }   
-        // the account number can't be the same as other accounts.
+        
         
     }
-
+    // the account number can't be the same as other accounts.
     private Account getAccountbyId(String cardId){
         for (int i = 0; i < accounts.size(); i++) {
             Account acc = accounts.get(i);
