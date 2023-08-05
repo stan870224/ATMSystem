@@ -143,7 +143,54 @@ public class ATM {
     }
     
     private void Transfer(){
-
+        // check the accounts  in the System > 2
+        if (accounts.size() < 2 ){
+            System.out.println("There are no other accounts in the system except you");
+            return;
+        }
+        // check your account money > 0
+        if (loginacc.getMoney() < 0){
+            System.out.println("You don't have any money. You can't do this operation");
+            return;
+        }
+        // enter the cardId you want tranfer
+        while (true){
+            System.out.println("Please enter The account you want to transfer money ");
+            String cardId = sc.next();
+            Account acc = getAccountbyId(cardId);
+            // check you input cardId is exist
+            if (acc == null){
+                System.out.println("You enter a wrong Account Number");
+                System.out.println("Please enter it again");
+            }else{
+            // if cardId is exsit
+                while(true){
+                    // Enter the first word of the name
+                    System.out.println("Please enter that account user name first word." );
+                    System.out.println("The full name is: *"+  acc.getName().substring(1));
+                    String name = sc.next();
+                    // if the first word correct than enter the money what you want to transfer
+                    if (acc.getName().startsWith(name)){
+                        while(true){
+                            System.out.println("Please enter how many money you want to transfer");
+                            double money = sc.nextDouble();
+                            if(loginacc.getMoney() > money){
+                                loginacc.setMoney(loginacc.getMoney() - money);
+                                System.out.println("You transfer " + money + " dollars to cardId:" + acc.getAccountNumber());
+                                System.out.println("You have "+ loginacc.getMoney() + " dollars now");
+                                acc.setMoney(acc.getMoney()+money);
+                                return;
+                            }else{
+                                System.out.println("Your money is not enough to transfer. You only can transfer " + loginacc.getMoney());
+                            }
+                        }
+                    }else{
+                        System.out.println("You enter the wrong password");
+                        System.out.println("Please enter it again");
+                    }
+                }
+            }
+        }
     }
 
     private void AccountDelete(){
