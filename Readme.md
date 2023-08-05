@@ -5,7 +5,7 @@ This is my Practice Project for build a ATM System
 3. login
 4. deposit & withdrawal
 5. transfer
-6. Account closure
+6. Delete Account 
 7. change the password
 
 

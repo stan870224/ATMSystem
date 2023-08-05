@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ATM {
     private ArrayList<Account> accounts = new ArrayList<>();
     private Scanner sc = new Scanner(System.in);
-
+    private Account loginacc;
     // start ATM system show the Welcome Page!!
     public void start(){
         while(true){
@@ -29,6 +29,7 @@ public class ATM {
         }
     }
 
+    // login 
     private void login(){
         System.out.println("========Login Your Acccount========");
         
@@ -48,7 +49,11 @@ public class ATM {
                     System.out.println("Please enter Your password");
                     String passWord = sc.next();
                     if (acc.getPassword().equals(passWord)){
+                        loginacc = acc;
                         System.out.println("Congulation !!" + acc.getName() + " Mrs./ Ms. your are login. Your Account Number is: " + acc.getAccountNumber());
+                        // show the Screen after login
+                        showUserCommand();
+                        return;
                     }else{
                         System.out.println("You enter the wrong password");
                         System.out.println("Please enter it again");
@@ -57,6 +62,56 @@ public class ATM {
             }
         }
     }
+
+    private void showUserCommand(){
+        while(true){
+            System.out.println("========User Command========");
+            System.out.println("The following is the operation that can be performed by this system");
+            System.out.println("Mr./Ms. "+ loginacc.getName() + " ,Please select your operation");
+            System.out.println("1.Select Your Account Information");
+            System.out.println("2.Deposit");
+            System.out.println("3.Withdrawals");
+            System.out.println("4.Transfer Your money");
+            System.out.println("5.Delete Account ");
+            System.out.println("6.Change the password");
+            System.out.println("7.Exit the User Command");
+            String command = sc.next();
+            switch(command){
+                case "1" : // Select Your Account Information
+                    AccountInformation();
+                    break;
+                case "2" : // Deposit
+
+                    break;
+                case "3" : // Withdrawals
+
+                    break;
+                case "4" : // Transfer Your money
+
+                    break;
+                case "5" : // Delete Account
+
+                    break;
+                case "6" : // Change the password
+
+                    break;
+                case "7" : // Exit the User Command
+                    System.out.println(loginacc.getName() + " Mr./Ms. You exit the User Command successfully");
+                    return;
+                default:
+                    System.out.println("Your command is wrong ,Please choose it again");    
+            
+            }
+        }
+    }
+
+    private void AccountInformation(){
+        System.out.println("Dear " + loginacc.getName() + " Mr./Ms. Your Account Number is: "+ loginacc.getAccountNumber());
+        System.out.println("The information below is your account information:");
+        System.out.println("Account User: " + loginacc.getName());
+        System.out.println("Account Balance: " + loginacc.getMoney());
+        System.out.println("Withdrawals Limit: " + loginacc.getLimit());
+    }   
 
     //finish create account
     private void create(){
