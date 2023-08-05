@@ -65,9 +65,9 @@ public class ATM {
 
     private void showUserCommand(){
         while(true){
-            System.out.println("========User Command========");
-            System.out.println("The following is the operation that can be performed by this system");
-            System.out.println("Mr./Ms. "+ loginacc.getName() + " ,Please select your operation");
+            System.out.println("========User Command Page========");
+            System.out.println("The following is the command that can be performed by this system");
+            System.out.println("Mr./Ms. "+ loginacc.getName() + " ,Please choose your command");
             System.out.println("1.Select Your Account Information");
             System.out.println("2.Deposit");
             System.out.println("3.Withdrawals");
@@ -179,7 +179,7 @@ public class ATM {
             }
         }   
     }
-    
+
     // the account number can't be the same as other accounts.
     private Account getAccountbyId(String cardId){
         for (int i = 0; i < accounts.size(); i++) {
