@@ -96,7 +96,7 @@ public class ATM {
                     break;
                 case "6" : // Change the password
                     passWordChange();
-                    break;
+                    return;
                 case "7" : // Exit the User Command
                     System.out.println(loginacc.getName() + " Mr./Ms. You exit the User Command successfully");
                     return;
@@ -216,17 +216,28 @@ public class ATM {
 
     private void passWordChange(){
         while(true){
-            System.out.println("Please Enter your password");
-            String password = sc.next();
-            System.out.println("To confirm the password, Please enter it again");
-            String okpassword = sc.next();
-            if (okpassword.equals(password)){
-                loginacc.setPassword(okpassword);
-                break;
+            System.out.println("Please enter your old password");
+            String oldpassword =sc.next();
+            if (loginacc.getPassword().equals(oldpassword)){
+                while(true){
+                    System.out.println("Please Enter your new password");
+                    String password = sc.next();
+                    System.out.println("To confirm the password, Please enter it again");
+                    String okpassword = sc.next();
+                    if (okpassword.equals(password)){
+                        loginacc.setPassword(okpassword);
+                        return;
+                    }else{
+                        System.out.println("The password is difference ,Please enter it again");
+                    }
+                }    
             }else{
-                System.out.println("The password is difference ,Please enter it again");
+                System.out.println("You input the wrong password");
+                System.out.println("Please enter it again");
             }
         }
+
+        
 
     }
 
