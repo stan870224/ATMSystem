@@ -81,10 +81,10 @@ public class ATM {
                     AccountInformation();
                     break;
                 case "2" : // Deposit
-
+                    Deposit();
                     break;
                 case "3" : // Withdrawals
-
+                    Withdrawals();
                     break;
                 case "4" : // Transfer Your money
 
@@ -111,7 +111,36 @@ public class ATM {
         System.out.println("Account User: " + loginacc.getName());
         System.out.println("Account Balance: " + loginacc.getMoney());
         System.out.println("Withdrawals Limit: " + loginacc.getLimit());
-    }   
+    }
+    
+    private void Deposit(){
+        System.out.println("Please enter the money you want to deposit");
+        double money = sc.nextDouble();
+        loginacc.setMoney(loginacc.getMoney() + money);
+        System.out.println("Deposit money successfully , Your Account Balance is " + loginacc.getMoney());
+    }
+
+    private void Withdrawals(){
+        if (loginacc.getMoney() < 100){
+            System.out.println("Your account balance is less than $100 and you cannot withdraw the money");
+            return;
+        }
+        while(true){
+            System.out.println("Please enter the money you want to withdraw");
+            double money = sc.nextDouble();
+            if (loginacc.getMoney() > money){
+                if (money <= loginacc.getLimit()){
+                    loginacc.setMoney(loginacc.getMoney() - money);
+                    System.out.println("Withdraw" + money + "money successfully , Your Account Balance now is " + loginacc.getMoney());
+                    break;
+                }else{
+                    System.out.println("Your withdrawal exceeds the withdrawal limit. You only can withdraw: " + loginacc.getLimit());
+                }
+            }else {
+                System.out.println("Your Account Balance is not enough , Please enter it again");
+            }
+        }
+    }    
 
     //finish create account
     private void create(){
