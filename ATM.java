@@ -221,10 +221,10 @@ public class ATM {
             if (loginacc.getPassword().equals(oldpassword)){
                 while(true){
                     System.out.println("Please Enter your new password");
-                    String password = sc.next();
+                    String newpassword = sc.next();
                     System.out.println("To confirm the password, Please enter it again");
                     String okpassword = sc.next();
-                    if (okpassword.equals(password)){
+                    if (okpassword.equals(newpassword)){
                         loginacc.setPassword(okpassword);
                         return;
                     }else{
