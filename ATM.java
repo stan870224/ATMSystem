@@ -226,6 +226,7 @@ public class ATM {
                     String okpassword = sc.next();
                     if (okpassword.equals(newpassword)){
                         loginacc.setPassword(okpassword);
+                        System.out.println("Congulation !! Your password is update successfully");
                         return;
                     }else{
                         System.out.println("The password is difference ,Please enter it again");
