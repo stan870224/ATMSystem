@@ -87,13 +87,13 @@ public class ATM {
                     Withdrawals();
                     break;
                 case "4" : // Transfer Your money
-
+                    Transfer();
                     break;
                 case "5" : // Delete Account
-
+                    AccountDelete();
                     break;
                 case "6" : // Change the password
-
+                    passWordChange();
                     break;
                 case "7" : // Exit the User Command
                     System.out.println(loginacc.getName() + " Mr./Ms. You exit the User Command successfully");
@@ -140,7 +140,19 @@ public class ATM {
                 System.out.println("Your Account Balance is not enough , Please enter it again");
             }
         }
-    }    
+    }
+    
+    private void Transfer(){
+
+    }
+
+    private void AccountDelete(){
+
+    }
+
+    private void passWordChange(){
+
+    }
 
     //finish create account
     private void create(){
