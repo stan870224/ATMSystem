@@ -90,7 +90,9 @@ public class ATM {
                     Transfer();
                     break;
                 case "5" : // Delete Account
-                    AccountDelete();
+                    if(AccountDelete() == true){
+                        return;
+                    }
                     break;
                 case "6" : // Change the password
                     passWordChange();
@@ -178,7 +180,7 @@ public class ATM {
                                 loginacc.setMoney(loginacc.getMoney() - money);
                                 System.out.println("You transfer " + money + " dollars to cardId:" + acc.getAccountNumber());
                                 System.out.println("You have "+ loginacc.getMoney() + " dollars now");
-                                acc.setMoney(acc.getMoney()+money);
+                                acc.setMoney(acc.getMoney() + money);
                                 return;
                             }else{
                                 System.out.println("Your money is not enough to transfer. You only can transfer " + loginacc.getMoney());
@@ -193,11 +195,38 @@ public class ATM {
         }
     }
 
-    private void AccountDelete(){
-
+    private boolean AccountDelete(){
+        System.out.println("Are you sure you really want to delete your account? Y/N");
+        String checkdelete = sc.next().toUpperCase();
+        switch(checkdelete){
+            case "Y" :
+                if (loginacc.getMoney() == 0){
+                    accounts.remove(loginacc);
+                    System.out.println("Your account is remove");
+                    return true;
+                }else{
+                    System.out.println("You still have money in your account, please do not delete it ");
+                    return false;
+                }               
+            default:
+                System.out.println("Delete account failure.");
+                return false;
+        }
     }
 
     private void passWordChange(){
+        while(true){
+            System.out.println("Please Enter your password");
+            String password = sc.next();
+            System.out.println("To confirm the password, Please enter it again");
+            String okpassword = sc.next();
+            if (okpassword.equals(password)){
+                loginacc.setPassword(okpassword);
+                break;
+            }else{
+                System.out.println("The password is difference ,Please enter it again");
+            }
+        }
 
     }
 
