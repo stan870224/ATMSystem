@@ -178,9 +178,8 @@ public class ATM {
                 return cardId;
             }
         }   
-        
-        
     }
+    
     // the account number can't be the same as other accounts.
     private Account getAccountbyId(String cardId){
         for (int i = 0; i < accounts.size(); i++) {
