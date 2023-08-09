@@ -9,7 +9,7 @@ public class ATM {
     // start ATM system show the Welcome Page!!
     public void start(){
         while(true){
-            System.out.println("=========Welcome to the Happy Bank ATM=========");
+            System.out.println("=========Welcome to Happy Bank ATM=========");
             System.out.println("1.Login Account" );
             System.out.println("2.Create an account" );
             System.out.println("Please choose a function");
@@ -23,7 +23,7 @@ public class ATM {
                     create(); // create account
                     break;
                 default :
-                    System.out.println("We don't hava this function");
+                    System.out.println("We don't have this function");
                     System.out.println("Please choose again!!");
             }
         }
@@ -34,7 +34,7 @@ public class ATM {
         System.out.println("========Login Your Acccount========");
         
         if (accounts.size() == 0 ){
-            System.out.println("There are no Accounts in the System , Please create an account first");
+            System.out.println("There aren't any Account in the System , Please create an account first");
             return;
         }
         while(true){
@@ -50,7 +50,7 @@ public class ATM {
                     String passWord = sc.next();
                     if (acc.getPassword().equals(passWord)){
                         loginacc = acc;
-                        System.out.println("Congulation !!" + acc.getName() + " Mrs./ Ms. your are login. Your Account Number is: " + acc.getAccountNumber());
+                        System.out.println("Congratulation !!" + acc.getName() + " Mrs./ Ms. you are login. Your Account Number is: " + acc.getAccountNumber());
                         // show the Screen after login
                         showUserCommand();
                         return;
@@ -226,7 +226,7 @@ public class ATM {
                     String okpassword = sc.next();
                     if (okpassword.equals(newpassword)){
                         loginacc.setPassword(okpassword);
-                        System.out.println("Congulation !! Your password is update successfully");
+                        System.out.println("Congratulation !! Your password is update successfully");
                         return;
                     }else{
                         System.out.println("The password is difference ,Please enter it again");
@@ -290,7 +290,7 @@ public class ATM {
 
         //Put this account object to the Arraylist(Account)
         accounts.add(acc);
-        System.out.println("Congualations !! Your Account is create !! " + acc.getName() + "Mr./Ms. Your Account Number is " + acc.getAccountNumber());
+        System.out.println("Congratulation !! Your Account is create !! " + acc.getName() + "Mr./Ms. Your Account Number is " + acc.getAccountNumber());
     }
         
     private String createCardId(){
